@@ -1,0 +1,14 @@
+{
+  "description": "Rabi-splitting comparison: NEP with the molecular polarizability term included vs neglected, against the explicit CBOA QEDFT reference (octopus, data/octopus_CO2_CBOA_FD.txt). One cavity mode resonant with the CO2 asymmetric stretch; coupling eps_tilde = lambda*omega. The lambda grid is taken from the reference file (first row). For each lambda the lower/upper polariton frequencies are extracted from the dipole_x spectrum and cached in data/nep_chi_{included,neglected}.txt (regenerate with generate_nep.py).",
+  "polar": true,
+  "polar_force": true,
+  "omega_cm": 2400.0,
+  "omega_au": 0.0109354,
+  "steps": 10000,
+  "timestep_fs": 0.5,
+  "pol_vector": [1, 0, 0],
+  "geometry": "examples/co2.xyz",
+  "band": [1200.0, 3300.0],
+  "reference": "data/octopus_CO2_CBOA_FD.txt",
+  "nep": {"pot": "nep-energy.txt", "dip": "nep-dipole.txt", "pol": "nep-polar.txt"}
+}

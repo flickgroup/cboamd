@@ -1,0 +1,17 @@
+{
+    "xyz_file": "co2.xyz",
+    "driver": "deepmd",
+    "dp_pot": "models/ener_frozen_model.pb",
+    "dp_dip": "models/dipole_frozen_model.pb",
+    "dp_pol": "models/polar_frozen_model.pb",
+    "type_map": ["C", "O"],
+    "steps": 10,
+    "timestep": 0.5,
+    "photons": true,
+    "nphoton": 1,
+    "omega_photon": [0.01107],
+    "lambda_photon": [0.05],
+    "lambda_vector": [[1, 0, 0]],
+    "polar": true,
+    "update_polar": true
+}

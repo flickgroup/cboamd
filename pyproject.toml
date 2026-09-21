@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cboamd"
+version = "1.0.0"
+description = "Cavity Born-Oppenheimer molecular dynamics with machine-learned potentials"
+authors = [
+    { name = "Yifan Li", email = "yifanl0716@gmail.com" },
+    { name = "Johannes Flick" }
+]
+readme = "README.md"
+license = { text = "GPL-3.0-or-later" }
+requires-python = ">=3.10"
+dependencies = ["numpy", "ase", "jsonpickle"]
+
+[project.optional-dependencies]
+deepmd = ["deepmd-kit"]
+nep = ["calorine"]
+# pyscf-properties (Polarizability / IR dipole derivatives) has no PyPI release,
+# so this extra needs a pip that can install from git. Pinned to a specific
+# commit for a reproducible install.
+pyscf = ["pyscf>=2.13", "pyscf-properties @ git+https://github.com/pyscf/properties.git@4eee5a430fb47eca5962f36fdcaf75c2b87e7ede"]
+
+[tool.setuptools]
+packages = ["cboamd", "cboamd.drivers", "scripts"]
+
+[tool.setuptools.package-dir]
+cboamd = "src/cboamd"
+scripts = "scripts"
+
+[project.scripts]
+cboamd = "cboamd.pymd_ase:main"
+infrared = "scripts.infrared:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib"
+markers = ["slow: long-running tests"]

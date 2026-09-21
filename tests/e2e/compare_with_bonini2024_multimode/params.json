@@ -1,0 +1,15 @@
+{
+  "description": "Multi-mode (7-harmonic) CO2 Rabi comparison vs Bonini 2024 Fig. 3B. Harmonic ladder omega_a=(a/3)*omega_res, lambda_a=(a/3)*lambda_res, a=1..7, resonant a=3, chi included. The resonant-mode Rabi LP/UP from NEP / ab initio q-mode / ab initio e-mode MD are compared against the ab initio panel-B branches (data/CO2_Fig3_panelB.dat). These 'lambdas' are the ab initio / reference grid; NEP uses a finer grid (generate_branches.py). steps/tolerances are as in compare_with_bonini2024.",
+  "omega_res_au": 0.0109354,
+  "n_harmonics": 7,
+  "alpha_res": 3,
+  "pol_vector": [1, 0, 0],
+  "lambdas": [0.0, 0.02, 0.04, 0.06, 0.08, 0.10, 0.12, 0.15],
+  "band_cm": [1700, 2950],
+  "band_peaks_cm": [1150, 3400],
+  "steps": 10000,
+  "timestep_fs": 0.5,
+  "geometry": "examples/co2.xyz",
+  "nep": {"pot": "nep-energy.txt", "dip": "nep-dipole.txt", "pol": "nep-polar.txt"},
+  "reference": "data/CO2_Fig3_panel{A,B,C,D}.dat (ab initio Bonini 2024 Fig. 3)"
+}

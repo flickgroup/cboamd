@@ -1,0 +1,12 @@
+{
+  "description": "no-polar comparison of ML interatomic potentials: NEP and DeepMD vs an ab initio (DFT) reference. One cavity mode near the CO2 asymmetric stretch; coupling eps_tilde = lambda*omega. NEP is recomputed each test run; DeepMD and the ab initio column are cached references.",
+  "lambdas": [0.0, 0.1, 0.3],
+  "omega_cm": 2400.0,
+  "omega_au": 0.0109354,
+  "steps": 1000,
+  "timestep_fs": 0.5,
+  "pol_vector": [1, 0, 0],
+  "geometry": "examples/co2.xyz",
+  "nep": {"pot": "nep-energy.txt", "dip": "nep-dipole.txt", "pol": "nep-polar.txt"},
+  "deepmd": {"pot": "dp-energy.pb", "dip": "dp-dipole-aimd-ref.pb"}
+}

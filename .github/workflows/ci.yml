@@ -1,0 +1,20 @@
+name: ci
+# run on main-branch pushes and PRs only; tag pushes re-test an already-tested
+# commit and would only duplicate runs (and failure emails)
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      # the pyscf extra is installed so the pyscf driver's tests run and pylint
+      # can resolve its imports (E0401 otherwise); it pulls pyscf-properties
+      # from git, which the runner's pip can do.
+      - run: pip install -e .[nep,pyscf] pytest pylint
+      - run: pytest tests -q -m "not slow"
+      - run: pylint src/cboamd --disable=all --enable=E

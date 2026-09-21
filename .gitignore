@@ -1,0 +1,16 @@
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+*.pb
+md.traj
+*.dat
+settings.json
+md.log
+.DS_Store
+
+# tracked test fixtures (cached reference trajectories)
+!tests/e2e/**/data/*.dat
+
+# plot outputs
+tests/e2e/figures/
